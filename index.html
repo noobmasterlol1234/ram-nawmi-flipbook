@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Kirtan Flipbook</title>
+  <script src="https://cdn.jsdelivr.net/npm/turn.js@4.1.0/dist/turn.min.js"></script>
+  <style>
+    body {
+      background: #f2f2f2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    #flipbook {
+      width: 800px;
+      height: 600px;
+    }
+    #flipbook .page {
+      width: 400px;
+      height: 600px;
+      background-color: white;
+    }
+  </style>
+</head>
+<body>
+
+<div id="flipbook">
+  <!-- Pages will be inserted here -->
+  <!-- Placeholder example -->
+  <!-- <div class="page"><img src="page1.jpg" style="width:100%; height:100%;"/></div> -->
+</div>
+
+<script>
+  const flipbook = document.getElementById('flipbook');
+
+  for (let i = 1; i <= 27; i++) {
+    const page = document.createElement('div');
+    page.className = 'page';
+
+    const img = document.createElement('img');
+    img.src = `page${i}.jpg`;
+    img.style.width = '100%';
+    img.style.height = '100%';
+
+    page.appendChild(img);
+    flipbook.appendChild(page);
+  }
+
+  $('#flipbook').turn({
+    width: 800,
+    height: 600,
+    autoCenter: true
+  });
+</script>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</body>
+</html>
